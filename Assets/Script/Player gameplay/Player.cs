@@ -16,15 +16,14 @@ public class Player : MonoBehaviour
     private bool isActive = false;
     private PlayerSwitcher playerSwitcher;
 
-    [System.Obsolete]
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f; // Remove gravity for top-down movement
         rb.freezeRotation = true; // Prevent rotation from physics
         
-        // Find the PlayerSwitcher in the scene
-        playerSwitcher = FindObjectOfType<PlayerSwitcher>();
+        // Find the PlayerSwitcher in the scene (updated for Unity 6)
+        playerSwitcher = FindFirstObjectByType<PlayerSwitcher>();
     }
     
     void Update()
